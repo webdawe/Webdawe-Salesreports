@@ -1,0 +1,37 @@
+# IDE
+/.cache/
+/.externalToolBuilders/
+/.idea/
+/.settings/
+/.buildpath
+/.project
+/.settings
+
+# Dreamweaver
+_notes/
+dwsync.xml
+
+# OS
+desktop.ini
+Thumbs.db
+.DS_Store
+.Trashes
+.ftpquota
+
+# Magento
+/app/etc/local.xml
+/downloader/.cache
+/downloader/cache.cfg
+/downloader/connect.cfg
+/includes/config.php
+/includes/src
+/media/*
+/var/*
+/vendor
+/.htaccess
+!*/.htaccess
+
+#vagrant
+.vagrant
+Vagrantfile
+playbook.yml

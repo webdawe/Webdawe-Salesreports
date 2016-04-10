@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+  <!-- Product Daily Report Index -->
+  <adminhtml_product_daily_index>
+	<reference name="content">
+	  <block type="webdawe_salesreports/adminhtml_product_daily" name="adminhtml_product_daily" />
+	</reference>
+  </adminhtml_product_daily_index>
+   <adminhtml_product_monthly_index>
+	<reference name="content">
+	  <block type="webdawe_salesreports/adminhtml_product_monthly" name="adminhtml_product_monthly" />
+	</reference>
+  </adminhtml_product_monthly_index>
+  <adminhtml_product_yearly_index>
+	<reference name="content">
+	  <block type="webdawe_salesreports/adminhtml_product_yearly" name="adminhtml_product_yearly" />
+	</reference>
+  </adminhtml_product_yearly_index>
+</layout>
+
