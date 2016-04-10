@@ -1,2 +1,2 @@
 # Webdawe-Salesreports
-Magento Salesreports - Productwise and Category
+Magento Salesreports - Productwise and Category wise Reports
