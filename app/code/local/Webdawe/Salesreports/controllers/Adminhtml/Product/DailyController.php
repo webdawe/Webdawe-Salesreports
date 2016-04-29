@@ -15,21 +15,13 @@ class Webdawe_Salesreports_Adminhtml_Product_DailyController extends Mage_Adminh
 			    $this->_title($this->__("Product Daily Report"));
 
 				$this->_initAction();
+				$this->_addContent($this->getLayout()->createBlock('webdawe_salesreports/adminhtml_product_daily_graph')->setTemplate('webdawe/salesreports/product/daily/graph.phtml'));
 				$this->renderLayout();
+
+
 		}
-		
-		/**
-		 * Grid action.
-		 *
-		 * @return void
-		 */
-		public function gridAction()
-		{
-		
-			$this->loadLayout();
-			$this->renderLayout();
-		}
-		
+
+
 		/**
 		 * Export order grid to CSV format
 		 */

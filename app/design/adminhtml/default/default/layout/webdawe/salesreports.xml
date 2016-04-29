@@ -2,8 +2,15 @@
 <layout version="1.0.0">
   <!-- Product Daily Report Index -->
   <adminhtml_product_daily_index>
+	  <reference name="head">
+		  <action method="addJs"><script>webdawe/Chart.min.js</script></action>
+		  <action method="addJs"><script>webdawe/jquery.min.js</script></action>
+		  <action method="addJs"><script>webdawe/jquery.noconflict.js</script></action>
+	  </reference>
 	<reference name="content">
-	  <block type="webdawe_salesreports/adminhtml_product_daily" name="adminhtml_product_daily" />
+	  <block type="webdawe_salesreports/adminhtml_product_daily" name="adminhtml_product_daily">
+	  	 <block type="webdawe_salesreports/adminhtml_product_daily_graph" name="adminhtml_product_daily_graph" template="webdawe/salesreports/product/daily/graph.phtml"/>
+	   </block>
 	</reference>
   </adminhtml_product_daily_index>
    <adminhtml_product_monthly_index>
