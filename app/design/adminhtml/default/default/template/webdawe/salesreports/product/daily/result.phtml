@@ -1,0 +1,22 @@
+<?php
+/**
+ * This source file is subject to the (Open Source Initiative) BSD license
+ * that is bundled with this package in the LICENSE file. It is also available
+ * through the world-wide-web at this URL: http://www.webdawe.com.au/license.html
+ * If you did not receive a copy of the license and are unable to obtain it through
+ * the world-wide-web, please send an email to info@webdawe.com.au immediately.
+ * Copyright (c) 2013-2017 Webdawe. (http://www.webdawe.com.au). All rights reserved.
+ */
+?>
+<?php $collection = $this->getCollection();?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->helper('webdawe_salesreports')->__('Result');?></h4>
+    </div>
+    <?php if (is_object($collection)) :?>
+        <?php if ($collection->getSize() > 0 ) :?>
+            <?php echo "Size" . $collection->getSize();?>
+            <?php echo  $this->getPagerHtml(); ?>
+        <?php endif;?>
+    <?php endif;?>
+</div>

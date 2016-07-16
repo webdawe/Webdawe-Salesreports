@@ -1,4 +1,14 @@
 <?xml version="1.0"?>
+<!--
+ /**
+ * This source file is subject to the (Open Source Initiative) BSD license
+ * that is bundled with this package in the LICENSE file. It is also available
+ * through the world-wide-web at this URL: http://www.webdawe.com.au/license.html
+ * If you did not receive a copy of the license and are unable to obtain it through
+ * the world-wide-web, please send an email to info@webdawe.com.au immediately.
+ * Copyright (c) 2013-2017 Webdawe. (http://www.webdawe.com.au). All rights reserved.
+ */
+-->
 <layout version="1.0.0">
   <!-- Product Daily Report Index -->
   <adminhtml_product_daily_index>
@@ -8,8 +18,10 @@
 		  <action method="addJs"><script>webdawe/jquery.noconflict.js</script></action>
 	  </reference>
 	<reference name="content">
-	  <block type="webdawe_salesreports/adminhtml_product_daily" name="adminhtml_product_daily">
-	  	 <block type="webdawe_salesreports/adminhtml_product_daily_graph" name="adminhtml_product_daily_graph" template="webdawe/salesreports/product/daily/graph.phtml"/>
+	  <block type="webdawe_salesreports/adminhtml_product_daily" name="adminhtml_product_daily" template="webdawe/salesreports/product/daily.phtml">
+		 <block type="webdawe_salesreports/adminhtml_product_daily_form" name="adminhtml_product_daily_form" template="webdawe/salesreports/product/daily/form.phtml" before="-"/>
+		 <block type="webdawe_salesreports/adminhtml_product_daily_result" name="adminhtml_product_daily_result" template="webdawe/salesreports/product/daily/result.phtml" after="adminhtml_product_daily_form"/>
+	  	 <block type="webdawe_salesreports/adminhtml_product_daily_graph" name="adminhtml_product_daily_graph" template="webdawe/salesreports/product/daily/graph.phtml" after="adminhtml_product_daily_result"/>
 	   </block>
 	</reference>
   </adminhtml_product_daily_index>

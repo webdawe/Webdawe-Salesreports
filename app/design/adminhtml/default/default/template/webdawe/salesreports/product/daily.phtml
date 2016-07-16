@@ -7,7 +7,10 @@
  * the world-wide-web, please send an email to info@webdawe.com.au immediately.
  * Copyright (c) 2013-2017 Webdawe. (http://www.webdawe.com.au). All rights reserved.
  */
-class Webdawe_Salesreports_Block_Adminhtml_Product_Daily extends Mage_Adminhtml_Block_Abstract
-{
+?>
+<div class="webdawe-admin-daily">
+<h1>Daily Report</h1>
+<?php echo $this->getChildhtml('adminhtml_product_daily_form');?>
+<?php echo $this->getChildhtml('adminhtml_product_daily_result');?>
+</div>
 
-}
