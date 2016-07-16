@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * This source file is subject to the (Open Source Initiative) BSD license
+ * that is bundled with this package in the LICENSE file. It is also available
+ * through the world-wide-web at this URL: http://www.webdawe.com.au/license.html
+ * If you did not receive a copy of the license and are unable to obtain it through
+ * the world-wide-web, please send an email to info@webdawe.com.au immediately.
+ * Copyright (c) 2013-2017 Webdawe. (http://www.webdawe.com.au). All rights reserved.
+ */
+-->
+<config>
+	  <tabs>
+		<webdawe_salesreports translate="label" module="webdawe_salesreports">
+            <label>Webdawe Sales Report</label>
+            <sort_order>200</sort_order>
+        </webdawe_salesreports>
+	  </tabs>
+	  <sections>
+		<webdawe_salesreports_settings translate="label" module="webdawe_salesreports">                    
+		<label>Webdawe Salesreport</label>
+		<tab>webdawe_salesreports</tab>
+		<frontend_type>text</frontend_type>
+		<sort_order>1</sort_order>
+		<show_in_default>1</show_in_default>
+		<show_in_website>1</show_in_website>
+		<show_in_store>1</show_in_store>            
+					<groups>
+				      <webdawe_salesreports_general translate="label"> 
+					  <label>General</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>0</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				       <fields>
+                          <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Enabled</comment>
+                          </enabled>
+                          <categories translate="label">
+                            <label>Categories</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>webdawe_salesreport/system_config_source_category</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Select Categories To Generate Report</comment>
+                          </categories>
+					   </fields>
+					   </webdawe_salesreports_general>
+					</groups>
+		</webdawe_salesreports_settings>
+	  </sections>
+</config>

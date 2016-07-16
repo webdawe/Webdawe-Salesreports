@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * This source file is subject to the (Open Source Initiative) BSD license
+ * that is bundled with this package in the LICENSE file. It is also available
+ * through the world-wide-web at this URL: http://www.webdawe.com.au/license.html
+ * If you did not receive a copy of the license and are unable to obtain it through
+ * the world-wide-web, please send an email to info@webdawe.com.au immediately.
+ * Copyright (c) 2013-2017 Webdawe. (http://www.webdawe.com.au). All rights reserved.
+ */
+-->
+<config>
+    <modules>
+        <Webdawe_Salesreports>
+            <version>1.0.0</version>
+        </Webdawe_Salesreports>
+    </modules>
+    <global>
+        <blocks>
+            <webdawe_salesreports>
+                <class>Webdawe_Salesreports_Block</class>
+            </webdawe_salesreports>
+            <webdawe_salesreports_adminhtml>
+                <class>Webdawe_Salesreports_Block_Adminhtml</class>
+            </webdawe_salesreports_adminhtml>
+        </blocks>
+        <helpers>
+            <webdawe_salesreports>
+                <class>Webdawe_Salesreports_Helper</class>
+            </webdawe_salesreports>
+        </helpers>
+       <models>
+            <webdawe_salesreports>
+                <class>Webdawe_Salesreports_Model</class>
+                <resourceModel>webdawe_salesreports_resource</resourceModel>
+            </webdawe_salesreports> 
+            <webdawe_salesreports_resource>
+                <class>Webdawe_Salesreports_Model_Resource</class>    
+               <entities>
+		        <product_daily>
+		            <table>webdawe_salesreports_product_daily</table>
+		        </product_daily>
+		        <product_monthly>
+		            <table>webdawe_salesreports_product_monthly</table>
+		        </product_monthly> 
+		        <product_yearly>
+		            <table>webdawe_salesreports_product_yearly</table>
+		        </product_yearly>          
+		  	</entities>
+            </webdawe_salesreports_resource>
+        </models>
+		<resources>
+            <webdawe_salesreports_setup>
+                <setup>
+                    <module>Webdawe_Salesreports</module>
+                </setup>
+            </webdawe_salesreports_setup>
+            <webdawe_salesreports_write>
+                <connection>
+                    <use>default_write</use>
+                </connection>
+            </webdawe_salesreports_write>
+            <webdawe_salesreports_read>
+                <connection>
+                    <use>default_read</use>
+                </connection>
+            </webdawe_salesreports_read>            
+        </resources>
+        
+        <!--
+        <events>
+            <catalog_product_load_after>
+                <observers>
+                    <webdawe_salesreports>
+                        <class>webdawe_salesreports/observer</class>
+                        <method>catalogProductLoadAfter</method>
+                    </webdawe_salesreports>
+                </observers>
+            </catalog_product_load_after>
+        </events>
+        -->
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Webdawe_Salesreports before="Mage_Adminhtml">Webdawe_Salesreports_Adminhtml</Webdawe_Salesreports>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+	<menu>
+	  <webdawe_salesreports module="webdawe_salesreports">
+		<title>Webdawe Salesreports</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <daily module="webdawe_salesreports">
+		    <title>Product Daily Report</title>
+			<sort_order>0</sort_order>
+			<action>adminhtml/product_daily</action>
+		  </daily>
+		  <monthly module="webdawe_salesreports">
+		    <title>Product Monthly Report</title>
+			<sort_order>1</sort_order>
+			<action>adminhtml/product_monthly</action>
+		  </monthly>
+		  <yearly module="webdawe_salesreports">
+		    <title>Product Yearly Report</title>
+			<sort_order>2</sort_order>
+			<action>adminhtml/product_yearly</action>
+		  </yearly>
+		</children>
+	  </webdawe_salesreports>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+		  <webdawe_salesreports translate="title" module="webdawe_salesreports">
+			  <title>Webdawe Salesreports</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+				  <daily translate="title">
+					<title>Product Daily Report</title>
+					<sort_order>0</sort_order>
+				  </daily>
+				  <monthly translate="title">
+					<title>Product Monthly Report</title>
+					<sort_order>10</sort_order>
+				  </monthly>
+				  <yearly translate="title">
+					<title>Product Yearly Report</title>
+					<sort_order>20</sort_order>
+				  </yearly>
+				</children>
+			</webdawe_salesreports>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<webdawe_salesreports>
+		  <file>webdawe/salesreports.xml</file>
+		</webdawe_salesreports>
+	  </updates>
+	</layout>
+  </adminhtml> 
+    <crontab>
+        <jobs>            
+			<webdawe_salesreports_syncdaily>
+                <schedule><cron_expr>30 1 */1 * *</cron_expr></schedule>
+                <run><model>salesreport/cron::SyncDaily</model></run>
+            </webdawe_salesreports_syncdaily>            
+			<webdawe_salesreports_syncmonthly>
+                <schedule><cron_expr>30 2 */1 * *</cron_expr></schedule>
+                <run><model>salesreport/cron::SyncMonthly</model></run>
+            </webdawe_salesreports_syncmonthly>            
+			<webdawe_salesreports_syncyearly>
+                <schedule><cron_expr>30 3 */1 * *</cron_expr></schedule>
+                <run><model>salesreport/cron::SyncYearly</model></run>
+            </webdawe_salesreports_syncyearly>
+        </jobs>
+    </crontab>
+</config>
